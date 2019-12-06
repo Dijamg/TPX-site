@@ -11,3 +11,95 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hero {
+  /* The image used */
+  background-image: url("Assets/landing.png");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+}
+
+.navbar{
+  color: white;
+  -webkit-box-shadow: 0 8px 6px -6px rgb(20, 19, 19);
+  -moz-box-shadow: 0 8px 6px -6px rgb(20, 19, 19);
+  box-shadow: 0 8px 6px -6px rgb(20, 19, 19);
+}
+
+.aalto-logo-A {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+}
+
+.aalto-logo-ex {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: x-large;
+  color: crimson;
+  margin-right: 2vw;
+}
+
+.title {
+  position: relative;
+  top: 30vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: rgb(5, 74, 138,0.5);
+  display: inline-block;
+  padding: 2%;
+}
+
+.wrapper {
+  position: relative;
+  text-align: center
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow {
+  position: absolute;
+  width: 10vw;
+  height: 0;
+  left: 45vw;
+  top: 60vh;
+  padding-bottom: 10%;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  box-shadow: -2px 2px rgba(255,255,255,5);
+  display: inline-block;
+}
+
+.arrow:hover {
+  box-shadow: -2px 2px 0 black;
+}
+
+.tours-page {
+  min-height: 100vh;
+  background-color: skyblue;
+}
+
+.buildings-page {
+  min-height: 100vh;
+}
+
+.about-page {
+  height: 100vh;
+  background-color: crimson;
+}
+
+.active > .link{
+  color: red;
+}
+
+
+
+
+
