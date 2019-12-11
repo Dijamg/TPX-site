@@ -75,6 +75,7 @@ code {
   transition: 0.5s;
   box-shadow: -2px 2px rgba(255,255,255,5);
   display: inline-block;
+  cursor: pointer;
 }
 
 .arrow:hover {
@@ -97,6 +98,10 @@ code {
 
 .active > .link{
   color: red;
+}
+
+.nav-link, .navbar-brand {
+  cursor: pointer;
 }
 
 
