@@ -1,1 +1,1 @@
-Link to the website https://affectionate-sammet-74e86e.netlify.com/
+A website for our gaming discord community. This website is made for fun and should not be taken seriously.
