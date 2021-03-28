@@ -1,14 +1,11 @@
 import React from 'react'
-import PoiForm from './PoiForm'
-import BuildingInfo from './BuildingInfo'
-import { listOfBuildings } from '../Assets/data'
-
-const building = listOfBuildings[0]
 
 const About = () => (
     <div className='about-page' id='about-page'>
-        THIS IS THE 4th PAGE
-        <PoiForm id={building.id} name = {building.name} imgUrl={building.imgUrl} description={building.description}/>
+        <h1>About us</h1>
+        <p>
+            The Phantom Phoenix Organization, also known as TPX, is a Discord community which focuses on video games. This Discord was founded by a few members but it has grown rapidly over the last year and now there's 69 of us. This community grows constantly because a lot of members like it and continue to invite their friends here. We play a variety of games, but the most popular games here at this moment are League of Legends, CS:GO and Valheim. Our community has hardcore gamers as well as casual players who just play once in while and prefer to do it with good company.
+        </p>
     </div>
 )
 

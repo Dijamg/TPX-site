@@ -11,7 +11,7 @@ const Navbar = () => (
             smooth={true}
             offset={-70}
             duration= {500}
-        ><span className='link'>HOME</span> <span className='aalto-logo-A'>A</span><span className='aalto-logo-ex'>!</span></Link>
+        ><span className='link'>HOME</span></Link>
         
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -23,23 +23,23 @@ const Navbar = () => (
                 <Link
                         className="nav-link text-white text-uppercase"
                         activeClass="active"
-                        to="buildings-page"
+                        to="members-page"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration= {500}
-                    ><span className='link'>Buildings</span></Link>
+                    ><span className='link'>Members</span></Link>
                 </li>
                 <li className="nav-item">
                     <Link
                         className="nav-link text-white text-uppercase"
                         activeClass="active"
-                        to="tours-page"
+                        to="tournaments-page"
                         spy={true}
                         smooth={true}
                         offset={-70}
                         duration= {500}
-                    ><span className='link'>Tours</span></Link>
+                    ><span className='link'>Tournaments</span></Link>
                 </li>
                 <li className="nav-item">
                 <Link

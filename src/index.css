@@ -14,9 +14,9 @@ code {
 
 .hero {
   /* The image used */
-  background-image: url("Assets/landing.png");
-  background-size: cover;
-  background-position: center center;
+  background-image: url("Assets/tpxlogo1920.png");
+  background-position: top center;
+  background-attachment: fixed;
   position: relative;
   top: 0;
   bottom: 0;
@@ -30,19 +30,46 @@ code {
   box-shadow: 0 8px 6px -6px rgb(20, 19, 19);
 }
 
-.aalto-logo-A {
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: larger;
-    color: white;
+.accountName {
+  font-size: xx-large;
+  font-weight: bold;
+  background-color:azure;
 }
 
-.aalto-logo-ex {
-  font-family: sans-serif;
-  font-weight: bold;
+.accountName > * {
+  display: inline-block;
+  padding: 0.5%;
+  width: 25%;
+}
+
+.champIcon {
+  margin-left: 1%;
+}
+
+.gameIcon {
+  text-align: center;
+}
+
+.summonerIcon {
+  width: 75px;
+  height: 75px;
+}
+
+.rankBorder {
+  width: 75px;
+  height: 75px;
+  float: right;
+}
+
+.knownFor, .achievements {
   font-size: x-large;
-  color: crimson;
-  margin-right: 2vw;
+  font-weight: bold;
+  margin-top: 3%;
+}
+
+.achievement {
+  font-size: large;
+  font-style: italic;
 }
 
 .title {
@@ -82,18 +109,38 @@ code {
   box-shadow: -2px 2px 0 black;
 }
 
-.tours-page {
-  min-height: 100vh;
-  background-color: skyblue;
-}
 
-.buildings-page {
+.tournaments-page, .members-page, .about-page {
   min-height: 100vh;
 }
 
 .about-page {
-  height: 100vh;
-  background-color: crimson;
+  padding-top: 5%;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+.about-page p {
+  font-family: 'Crimson Text', serif;
+  padding: 5% 10% 0% 10%;
+}
+
+.about-page h1 {
+  font-weight: bolder;
+}
+
+.page-containers {
+  background-image: url("Assets/starbackground.png");
+  background-position:center;
+  background-attachment: fixed;
+}
+
+.text-slanted {
+  color: white;
+  font-weight: bolder;
+
 }
 
 .active > .link{
