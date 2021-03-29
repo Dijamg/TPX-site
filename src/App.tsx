@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import Home from './Components/Home'
-import Navbar from './Components/Navbar'
-import Tournaments from './Components/Tournaments'
-import Members from './Components/Members'
-import About from './Components/About'
+import MerchStore from './Components/MerchStore'
+import TPXsite from './Components/TPXsite'
 import { Member, LoL, Runeterra, TFT, Operators } from './Assets/data'
 import MemberService from './Services/Member'
 import GameInfoService from './Services/GameInfo'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 
 const App = () => {
@@ -38,13 +39,10 @@ const App = () => {
   
   return(    
         <div>
-        <Navbar/>
-        <div className="page-containers">
-          <Home/>
-          <Members operators={operators}/>
-          <Tournaments/>
-          <About/>
-        </div>
+        <Router>
+          <Route exact path="/" render={() => <TPXsite operators={operators}/>}/>
+          <Route exact path="/merch" render={() => <MerchStore/>} />
+        </Router>
         </div>
   )
 

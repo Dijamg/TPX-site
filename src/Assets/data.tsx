@@ -5,6 +5,7 @@ export type Member = {
     description: string,
 }
 
+
 export type LoL = {
     id: number,
     playerId: number,
@@ -14,7 +15,8 @@ export type LoL = {
     summonerIcons: string[],
     summonerRanks: string[],
     playedChamps: string[],
-    achievements: string[]|null
+    achievements: string[]|null,
+    isLoL: true
 }
 
 export type Runeterra = {
@@ -23,6 +25,7 @@ export type Runeterra = {
     name: string,
     gameIconUrl: string,
     accounts: string[],
+    isRuneterra: true
 }
 
 export type TFT = {
@@ -31,6 +34,7 @@ export type TFT = {
     name: string,
     gameIconUrl: string,
     accounts: string[],
+    isTFT: true
 }
 
 export type Operators = {

@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Tours = () => (
+const Tournaments = () => (
     <div className='tournaments-page' id='tournaments-page'>
-        THIS IS THE 2nd PAGE
+        <h1>merch</h1>
+        <p>
+            Our hosted tournaments in the future will be featured here.
+        </p>
     </div>
 )
 
-export default Tours
+export default Tournaments

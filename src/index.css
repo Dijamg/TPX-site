@@ -114,7 +114,7 @@ code {
   min-height: 100vh;
 }
 
-.about-page {
+.about-page, .tournaments-page {
   padding-top: 5%;
   font-weight: bold;
   text-align: center;
@@ -122,12 +122,12 @@ code {
   font-size: xx-large;
 }
 
-.about-page p {
+.about-page p, .tournaments-page p {
   font-family: 'Crimson Text', serif;
   padding: 5% 10% 0% 10%;
 }
 
-.about-page h1 {
+.about-page h1, .tournaments-page h1 {
   font-weight: bolder;
 }
 
@@ -157,6 +157,49 @@ code {
   max-width: none!important;
   }
 
+  .merchnav {
+    overflow: hidden;
+    background-color:rgba(30,30,30,255)
+    ;
+    
+  }
+
+  .merchnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Navbar links on mouse-over */
+  .merchnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Active/current link */
+  .merchnav a.active {
+    background-color: #2196F3;
+    color: white;
+  }
+
+  .merchHeroImage{   
+    background-color: rgba(30,30,30,255)
+    ;
+    background-size:cover;
+    height: 15vh;
+    width: 100%  ;
+  }
+
+  .merch-page {
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  
 
 
 

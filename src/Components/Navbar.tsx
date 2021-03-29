@@ -1,5 +1,12 @@
 import React from 'react'
 import { Link } from 'react-scroll'
+import {
+    NavLink
+  } from 'react-router-dom'
+
+  const activeStyle = {
+    color: 'red'
+}
 
 const Navbar = () => (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark" style={{backgroundColor: 'black'}}>
@@ -51,6 +58,9 @@ const Navbar = () => (
                         offset={-70}
                         duration= {500}
                     ><span className='link'>About</span></Link>
+                </li>
+                <li className="nav-item">
+                    <NavLink className="nav-link text-white text-uppercase" activeStyle={activeStyle} to="merch">Merchandise</NavLink>
                 </li>   
             </ul>
         </div>
