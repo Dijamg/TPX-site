@@ -190,7 +190,7 @@ code {
     background-color: rgba(30,30,30,255)
     ;
     background-size:cover;
-    height: 15vh;
+    height: 20vh;
     width: 100%  ;
   }
 
@@ -198,6 +198,45 @@ code {
     padding: 20px;
     min-height: 100vh;
   }
+
+  .categoriesContainer {
+    margin: auto;
+    width: 50%;
+    height: 80%;
+    text-align: center;
+
+  }
+  
+  .category {
+    height: 100%;
+    margin-left: 5%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .category:hover {
+    text-decoration: underline;
+  }
+
+  .categoryImage {
+    height: 100%;
+  }
+
+  .categoryName{
+    display: block;
+    color: white;
+    font-weight: bolder;
+}
+
+.categoryImage:hover + .categoryName {
+  text-decoration: underline;
+}
+
+.categoryImage:hover, .categoryName:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
   
 

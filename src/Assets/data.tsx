@@ -5,6 +5,10 @@ export type Member = {
     description: string,
 }
 
+export type Category = {
+    name: string,
+    img: string
+}
 
 export type LoL = {
     id: number,
