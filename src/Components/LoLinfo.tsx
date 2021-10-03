@@ -31,7 +31,7 @@ const LoLinfo =  ({ game, member }: { game: LoL, member: Member}) => {
                                 return (
                                     <ListGroup.Item className='accountName' key={accountName}>
                                         <img alt='summoner icon' className='summonerIcon' src={game.summonerIcons[game.accounts.indexOf(accountName)]}/>
-                                        <span>{accountName}</span><a target="_blank" href={getOpggUrl(accountName)}>OP.GG</a><img alt='rank border' className='rankBorder' src={game.summonerRanks[game.accounts.indexOf(accountName)]}/>
+                                        <span>{accountName}</span><a target="_blank" rel="noopener noreferrer" href={getOpggUrl(accountName)}>OP.GG</a><img alt='rank border' className='rankBorder' src={game.summonerRanks[game.accounts.indexOf(accountName)]}/>
                                     </ListGroup.Item>)
                             })}
                         </ListGroup>

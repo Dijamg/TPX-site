@@ -7,7 +7,17 @@ export type Member = {
 
 export type Category = {
     name: string,
-    img: string
+    id: number
+}
+
+export type Product = {
+    id: number,
+    name: string,
+    description: string,
+    img: string,
+    price: string,
+    status: string,
+    category: string
 }
 
 export type LoL = {
@@ -43,7 +53,9 @@ export type TFT = {
 
 export type Operators = {
     members: Member[],
-    gameInfos: (LoL|Runeterra|TFT)[]
+    gameInfos: (LoL|Runeterra|TFT)[],
+    products: Product[],
+    categories: Category[]
 }
 
 
