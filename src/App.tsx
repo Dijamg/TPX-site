@@ -58,12 +58,19 @@ const App = () => {
         })
     }, [])
 
-  
+  const getProductById = (id: number):Product|undefined => products.find(product => product.id == id)
+
+
   return(    
         <div>
         <Router>
           <Route exact path="/" render={() => <TPXsite operators={operators}/>}/>
-          <Route exact path="/merch" render={() => <MerchStore operators={ operators} />} />
+          <Route exact path="/merch" render={() => <MerchStore operators={ operators} product={undefined} />} />
+          <Route exact path="/merch/:id" render={ ({ match }) => {
+            const product = getProductById(match.params.id)
+             if(product !== undefined) {return <MerchStore operators={ operators} product={product} />}
+          }
+          } />
         </Router>
         </div>
   )

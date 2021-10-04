@@ -217,11 +217,10 @@ code {
     vertical-align: middle;
     font-size:medium;
     height: 60px;
-    width: 100%  ;
+    width: 100%;
   }
 
   .merch-page-store {
-    padding: 20px;
     min-height: 100vh;
     background-color: rgb(238, 238, 238);
   }
@@ -358,11 +357,87 @@ code {
   margin-right: 5px;
 }
 
+.product-card-navlink:hover {
+  text-decoration: none;
+}
+
 .product-card:hover > .product-card-image {
   transform: scale(1.05);
   transition: transform 0.5s;
 }
+
+.product-page {
+  width: 100vw;
+  height: 100vh;
+  padding: 0%;
+  margin:0%;
+  background-color: white;
+}
   
+.product-page-info-container {
+  position: relative;
+  margin: 5% 10% 0 10%;
+  text-align: left;
+}
+
+.product-page-description-container{
+  color: #45474c;
+  font-weight: 300;
+}
+
+.product-page-description-container h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 2.25rem;
+  color: #45474c;
+  margin-bottom: .5em;
+}
+
+.product-page-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.25;
+}
+
+.product-page-image img {
+  width: 100%;
+}
+
+.product-page-price {
+  font-size: 1.4em;
+  color: #000;
+  font-weight: 700;
+}
+
+.product-page-status {
+  text-transform: uppercase;
+  margin-bottom: .5em;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 20px;
+  text-align: left;
+  color: #6e7073;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.product-page-button-container {
+  margin-top: 2%;
+  width: 100%;
+}
+.product-page-button-container select {
+  float: right;
+  width: 20%;
+}
+
+.product-page-button {
+  width: 75%;
+}
+
+
+
 
 
 

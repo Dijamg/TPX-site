@@ -2,8 +2,14 @@ import React, { useState } from 'react'
 import MerchsiteNavbar from './MerchsiteNavbar'
 import { Operators, Product } from '../Assets/data'
 import ProductList from './ProductList'
+import ProductInfo from './ProductInfo'
+import {
+    Link
+  } from 'react-router-dom'
 
-const MerchStore = ({ operators }: { operators: Operators}) => {
+
+  //Navlink has to="/merch" so that users can navigate back to the store after clicking a certain product.
+  const MerchStore = ({ operators, product }: { operators: Operators, product: Product|undefined}) => {
 
     const [displayProducts, setDisplayProducts] = useState<Product[]>(operators.products.filter(product => product.category === "Hoodie"))
 
@@ -12,6 +18,13 @@ const MerchStore = ({ operators }: { operators: Operators}) => {
         setDisplayProducts(operators.products.filter(product => product.category === category))
     }
     
+    const output = () => {
+        if(product !== undefined){
+            return <ProductInfo product={product} />
+        } else {
+            return <ProductList products={displayProducts}/>
+        }
+    }
 
 
     return (
@@ -19,14 +32,14 @@ const MerchStore = ({ operators }: { operators: Operators}) => {
             <MerchsiteNavbar/>
             <div className='categoriesContainer'>
                 { operators.categories.map( category => (
-                    <li className="category"  key={category.name} onClick={() => selectFilter(category.name)}>
-                        <a className='categoryName'>{category.name}</a>
-                    </li>
+                    <Link to ="/merch" className="category"  key={category.name} onClick={() => selectFilter(category.name)}>
+                        <span className='categoryName'>{category.name}</span>  
+                    </Link>
                 ))}
             </div>
             
             <div className='merch-page-store' id='merch-page-store'>
-                <ProductList products={displayProducts}/>
+                {output()}
             </div>
         </div>
     )

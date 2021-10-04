@@ -3,7 +3,7 @@ import { FaHome, FaShoppingCart } from "react-icons/fa";
 import ShoppingCartDropdown from './ShoppingCartDropdown'
 
 import {
-    NavLink
+    Link
   } from 'react-router-dom'
 
 const MerchsiteNavbar = () => {
@@ -18,7 +18,7 @@ const MerchsiteNavbar = () => {
     return (
         <div>
             <div className="merchnav">
-                <NavLink className="homeButton" to="/"><FaHome className="homeIcon"/></NavLink>
+                <Link className="homeButton" to="/"><FaHome className="homeIcon"/></Link>
                 <span className="merchandise-title">TPX Merch</span>
                 <span className="shoppingCardButton" onMouseEnter={() => setShoppingCartHovered(true)} onMouseLeave={() => setShoppingCartHovered(false)}><FaShoppingCart className="shoppingCardIcon"/></span>
             </div>
