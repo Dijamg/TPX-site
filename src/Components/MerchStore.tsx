@@ -11,7 +11,7 @@ import {
   //Navlink has to="/merch" so that users can navigate back to the store after clicking a certain product.
   const MerchStore = ({ operators, product }: { operators: Operators, product: Product|undefined}) => {
 
-    const [displayProducts, setDisplayProducts] = useState<Product[]>(operators.products.filter(product => product.category === "Hoodie"))
+    const [displayProducts, setDisplayProducts] = useState<Product[]>(operators.products.filter(product => product.category === "Hoodies"))
 
     const selectFilter = (category : string): void => {
         console.log(category)
