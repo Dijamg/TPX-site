@@ -377,8 +377,7 @@ code {
 .product-page-info-container {
   position: relative;
   margin: 5% 10% 0 10%;
-  text-align: left;
-  background-color: ;
+  text-align: left; 
 }
 
 .product-page-description-container{

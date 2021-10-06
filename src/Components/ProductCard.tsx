@@ -1,7 +1,7 @@
 import React from 'react'
 import { Product } from '../Assets/data'
 import {
-    NavLink
+    Link
   } from 'react-router-dom'
 
 const ProductCard = ({ product }:{ product: Product }) => {
@@ -10,7 +10,7 @@ const ProductCard = ({ product }:{ product: Product }) => {
     return (
         <React.Fragment>
             <div className='col-10 mx-auto col-md-6 col-lg-3 my-3'>
-                <NavLink className="product-card-navlink" to={`merch/${product.id}`}>
+                <Link className="product-card-navlink" to={`/merch/${product.category}/${product.id}`}>
                     <div className="product-card">
                         <img className="product-card-image" alt="productimg" src={product.img}/>
                         <div className ="product-card-text-container">
@@ -27,7 +27,7 @@ const ProductCard = ({ product }:{ product: Product }) => {
                         </div>
                         
                     </div>
-                </NavLink>
+                </Link>
             </div>
         </React.Fragment>
     )

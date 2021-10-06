@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import MerchStore from './Components/MerchStore'
+import MerchStoreCategory from './Components/MerchStoreCategory'
+import ProductInfoPage from './Components/ProductInfoPage'
 import TPXsite from './Components/TPXsite'
 import { Member, LoL, Runeterra, TFT, Operators, Product, Category } from './Assets/data'
 import MemberService from './Services/Member'
@@ -65,12 +66,18 @@ const App = () => {
         <div>
         <Router>
           <Route exact path="/" render={() => <TPXsite operators={operators}/>}/>
-          <Route exact path="/merch" render={() => <MerchStore operators={ operators} product={undefined} />} />
-          <Route exact path="/merch/:id" render={ ({ match }) => {
+          <Route exact path="/merch" render={() => <MerchStoreCategory operators={ operators} categoryName="Hoodies"/>} />
+          <Route exact path="/merch/Hoodies" render={() => <MerchStoreCategory operators={ operators} categoryName="Hoodies" />} />
+          <Route exact path="/merch/Headwear" render={() => <MerchStoreCategory operators={ operators} categoryName="Headwear" />} />
+          <Route exact path="/merch/T-Shirts" render={() => <MerchStoreCategory operators={ operators} categoryName="T-Shirts" />} />
+          <Route exact path="/merch/Accessories" render={() => <MerchStoreCategory operators={ operators} categoryName="Accessories" />} />
+
+          <Route exact path="/merch/:category/:id" render={ ({ match }) => {
             const product = getProductById(match.params.id)
-             if(product !== undefined) {return <MerchStore operators={ operators} product={product} />}
+             if(product !== undefined) {return <ProductInfoPage operators={ operators} product={product} />}
           }
           } />
+
         </Router>
         </div>
   )
