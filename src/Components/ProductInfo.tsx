@@ -1,22 +1,49 @@
 import React from 'react'
-import { Product } from '../Assets/data'
+import { Product, Size } from '../Assets/data'
 import Button from 'react-bootstrap/Button';
 
 
 const ProductInfo = ({ product }:{ product: Product }) => {
 
+    const sizeOption = (size: Size) => {
+        const quantity = size.quantity;
+        if(quantity === 0){
+            return (<option key={size.size} className="outOfStock">{`${size.size} (Out Of Stock)`}</option>)
+        } else {
+            return (<option key={size.size}>{size.size}</option>)
+        }
+    }
+
     const sizedropdown = () => {
-        if(product.size != undefined){
+        if(product.size !== undefined){
             return(
                 <select className="form-control">
                     <option hidden >SIZE OR TYPE</option>
-                    {product.size.map(size => <option>{size}</option>)}
+                    {product.size.map(size => sizeOption(size))}
                 </select>
             )
         } else {
             //do nothing
         }
     }
+
+    const productStatus = () => {
+        let quantity = 0;
+        if(product.quantity !== undefined){
+            quantity = product.quantity
+        } else {
+            product.size?.forEach(size => quantity += size.quantity);
+        }
+
+        if(quantity === 0){
+            return <span className="product-page-status-outofstock">OUT OF STOCK</span>
+        } else if (quantity < 10) {
+            return <span className="product-page-status-limited">LIMITED AVAILABILITY</span>
+        } else {
+           return <span className="product-page-status-instock">IN STOCK</span>
+        }
+    }
+
     return (
             <div className = "product-page">
                 <div className="product-page-info-container">
@@ -34,11 +61,11 @@ const ProductInfo = ({ product }:{ product: Product }) => {
                             </div>
                             <span className="product-page-price">{`${product.price} €`}</span>
                             <hr/>
-                            <span className="product-page-status">{product.status}</span>
+                            {productStatus()}
                             <hr/>
                             {sizedropdown()}
                             <div className="product-page-button-container">
-                                <Button className="product-page-button">Add to cart</Button>
+                                <Button onClick={() => console.log(product.size)} className="product-page-button">Add to cart</Button>
                                 <select className="form-control quantity-selector">
                                     <option> 1 </option>
                                     <option> 2 </option>

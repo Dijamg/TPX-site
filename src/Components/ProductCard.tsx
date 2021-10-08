@@ -6,6 +6,24 @@ import {
 
 const ProductCard = ({ product }:{ product: Product }) => {
 
+    const productStatus = () => {
+
+        let quantity = 0;
+        if(product.quantity !== undefined){
+            quantity = product.quantity
+        } else {
+            product.size?.forEach(size => quantity += size.quantity);
+        }
+        
+        if(quantity === 0){
+            return <div className="product-card-product-inventorystatus-outofstock">OUT OF STOCK</div>
+        } else if (quantity < 10) {
+            return <div className="product-card-product-inventorystatus-limited">LIMITED AVAILABILITY</div>
+        } else {
+           return <div className="product-card-product-inventorystatus-instock">IN STOCK</div>
+        }
+    }
+
 
     return (
         <React.Fragment>
@@ -22,7 +40,7 @@ const ProductCard = ({ product }:{ product: Product }) => {
                                 </div>
                             </div>
                             <div className ="product-card-product-status">
-                                <div className="product-card-product-inventorystatus">{product.status}</div>
+                                {productStatus()}
                             </div>
                         </div>
                         

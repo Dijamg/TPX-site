@@ -10,14 +10,19 @@ export type Category = {
     id: number
 }
 
+export type Size = {
+    size: string,
+    quantity: number
+}
+
 export type Product = {
     id: number,
     name: string,
     description: string,
     img: string,
     price: number,
-    size: string[]|undefined,
-    status: string,
+    size: Size[]|undefined,
+    quantity: number | undefined,
     category: string
 }
 
