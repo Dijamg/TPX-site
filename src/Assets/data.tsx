@@ -16,6 +16,7 @@ export type Product = {
     description: string,
     img: string,
     price: number,
+    size: string[]|undefined,
     status: string,
     category: string
 }

@@ -131,6 +131,60 @@ code {
   font-weight: bolder;
 }
 
+.footer {
+  position: relative;
+  background-color: rgb(30,30,30);
+  height: 35vh;
+}
+
+.footer-content-container {
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  height: 80%;
+  width: 80%;
+  left: 10%;
+  bottom: 10%;
+}
+
+.footer-logos {
+  margin: 1%;
+}
+
+.footer-logo-tpx {
+  width: 100px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.footer-logo-github {
+  width: 45px;
+}
+
+.footer-logo-merch {
+  font-size: 3em;
+  color: rgb(204, 61, 221);
+}
+
+.footer-links-container a {
+  margin: 0 1% 0 1%;
+  color: rgb(204, 61, 221);
+}
+
+.footer-links-container span {
+  color: rgb(204, 61, 221);
+}
+
+.footer-links-container a:hover {
+  text-decoration: none;
+  color: rgb(234, 91, 251);
+}
+
+.footer-logo-merch:hover {
+  cursor: pointer;
+}
+  
+
 .page-containers {
   background-image: url("Assets/starbackground.png");
   background-position:center;
@@ -212,7 +266,7 @@ code {
 
 
   .categoriesContainer {   
-    background-color: rgba(30,30,30,255);
+    background-color: rgb(30,30,30);
     text-align: center;
     vertical-align: middle;
     font-size:medium;
@@ -235,6 +289,7 @@ code {
 
   .category:hover {
     background-color: white;
+    text-decoration: none;
     color: black;
   }
 

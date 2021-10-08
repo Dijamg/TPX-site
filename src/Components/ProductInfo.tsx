@@ -4,6 +4,19 @@ import Button from 'react-bootstrap/Button';
 
 
 const ProductInfo = ({ product }:{ product: Product }) => {
+
+    const sizedropdown = () => {
+        if(product.size != undefined){
+            return(
+                <select className="form-control">
+                    <option hidden >SIZE OR TYPE</option>
+                    {product.size.map(size => <option>{size}</option>)}
+                </select>
+            )
+        } else {
+            //do nothing
+        }
+    }
     return (
             <div className = "product-page">
                 <div className="product-page-info-container">
@@ -23,15 +36,7 @@ const ProductInfo = ({ product }:{ product: Product }) => {
                             <hr/>
                             <span className="product-page-status">{product.status}</span>
                             <hr/>
-                            <select className="form-control">
-                                <option hidden >SIZE OR TYPE</option>
-                                <option> XS </option>
-                                <option> S </option>
-                                <option> M </option>
-                                <option> L </option>
-                                <option> XL </option>
-                                <option> XXL </option>
-                            </select>
+                            {sizedropdown()}
                             <div className="product-page-button-container">
                                 <Button className="product-page-button">Add to cart</Button>
                                 <select className="form-control quantity-selector">

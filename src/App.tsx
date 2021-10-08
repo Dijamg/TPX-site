@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import MerchStoreCategory from './Components/MerchStoreCategory'
 import ProductInfoPage from './Components/ProductInfoPage'
 import TPXsite from './Components/TPXsite'
+import Footer from './Components/Footer'
 import { Member, LoL, Runeterra, TFT, Operators, Product, Category } from './Assets/data'
 import MemberService from './Services/Member'
 import ProductService from './Services/Product'
@@ -78,6 +79,7 @@ const App = () => {
           }
           } />
 
+        <Footer/>
         </Router>
         </div>
   )
