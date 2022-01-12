@@ -21,6 +21,7 @@ code {
   top: 0;
   bottom: 0;
   height: 100vh;
+  width: 100vw;
 }
 
 .navbar{
@@ -321,12 +322,75 @@ code {
   display: block;
   right: 0%;
   background-color: white;
+  padding: 16px;
+}
+
+.shoppingCartBadge {
+    position: relative;
+    display: inline-flex;
+    font-weight: bolder;
+    top: -0.6rem;
+    left: -0.5rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: goldenrod;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .shoppingCart-dropdown-header {
   padding: 2% 0 0 2%;
   font-size: x-large;
 }
+
+.shoppingCart-dropdown-items {
+  margin: 0.5rem 0;
+  max-height: calc(min(60vh, 30rem));
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.shoppingCart-dropdown-item {
+  margin: 0.5rem 0;
+}
+
+.shoppingCart-dropdown-item-image {
+  max-width: 110px;
+}
+
+.shoppingCart-dropdown-name, .shoppingCart-dropdown-category, .shoppingCart-dropdown-price, .shoppingCart-dropdown-pricesize-container {
+  font-size: 1.25rem;
+}
+
+.shoppingCart-dropdown-pricesize-container {
+  margin-top: 0.5rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.shoppingCart-dropdown-name {
+  line-height: 1;
+  font-weight: bolder;
+  color: #172480;
+}
+
+.shoppingCart-dropdown-removeButton {
+  border: none;
+  background: none;
+}
+
+.shoppingCart-dropdown-size {
+  float: right;
+  font-weight: bold;
+}
+
+.shoppingCart-dropdown-price {
+  font-weight: bold;
+  color: crimson;
+}
+
 
 .shoppingCart-dropdown-emptyCart {
   text-align: center;
@@ -335,6 +399,12 @@ code {
 
 .shoppingCart-dropdown-separator {
   margin-top: 0;
+}
+
+.shoppingCart-checkoutbutton-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-card {

@@ -5,14 +5,19 @@ import ShoppingCartDropdown from './ShoppingCartDropdown'
 import {
     Link
   } from 'react-router-dom'
+import { SingleProduct } from '../Assets/data';
 
-const MerchsiteNavbar = () => {
+const MerchsiteNavbar = ( { shoppingCart }:{ shoppingCart: SingleProduct[] }) => {
 
-    const ShoppingCart = () => showShoppingCart ? <ShoppingCartDropdown setDropdownCartHovered = {setDropdownCartHovered}/> : <div></div>;
+    const ShoppingCart = () => showShoppingCart ? <ShoppingCartDropdown setDropdownCartHovered = {setDropdownCartHovered} productsInCart = {shoppingCart}/> : <div></div>;
 
     const [shoppingCardHovered, setShoppingCartHovered] = useState<boolean>(false);
     const [dropdownCartHovered, setDropdownCartHovered] = useState<boolean>(false);
     const showShoppingCart: boolean = (shoppingCardHovered || dropdownCartHovered);
+
+    const numberOfProductsInCart: number = shoppingCart.length;
+
+    const style =  {display : (numberOfProductsInCart > 0) ? '' : 'none'}
 
 
     return (
@@ -20,7 +25,10 @@ const MerchsiteNavbar = () => {
             <div className="merchnav">
                 <Link className="homeButton" to="/"><FaHome className="homeIcon"/></Link>
                 <span className="merchandise-title">TPX Merch</span>
-                <span className="shoppingCardButton" onMouseEnter={() => setShoppingCartHovered(true)} onMouseLeave={() => setShoppingCartHovered(false)}><FaShoppingCart className="shoppingCardIcon"/></span>
+                <span className="shoppingCardButton" onMouseEnter={() => setShoppingCartHovered(true)} onMouseLeave={() => setShoppingCartHovered(false)}>
+                    <FaShoppingCart className="shoppingCardIcon"/>
+                    <span style={style} className="shoppingCartBadge">{numberOfProductsInCart}</span>
+                </span>
             </div>
             {ShoppingCart()}
         </div>

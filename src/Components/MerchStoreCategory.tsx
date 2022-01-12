@@ -1,22 +1,21 @@
 import React from 'react'
 import MerchsiteNavbar from './MerchsiteNavbar'
-import { Operators } from '../Assets/data'
+import { Operators, SingleProduct } from '../Assets/data'
 import ProductList from './ProductList'
 import MerchsiteCategories from './MerchsiteCategories'
 
 
   //Navlink has to="/merch" so that users can navigate back to the store after clicking a certain product.
-  const MerchStoreCategory = ({ operators, categoryName }: { operators: Operators, categoryName: string}) => {
+  const MerchStoreCategory = ({ operators, categoryName}: { operators: Operators, categoryName: string}) => {
 
     const displayProducts = operators.products.filter(product => product.category === categoryName)
 
     return (
         <div className='merch-page' id='merch-page'>
-            <MerchsiteNavbar/>
+            <MerchsiteNavbar shoppingCart = {operators.shoppingCart}/>
             <MerchsiteCategories categories={operators.categories}/>
-            
             <div className='merch-page-store' id='merch-page-store'>
-                <ProductList products={displayProducts}/>
+                <ProductList products={displayProducts} shoppingCart={operators.shoppingCart}/>
             </div>
         </div>
     )

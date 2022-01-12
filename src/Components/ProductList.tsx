@@ -1,8 +1,8 @@
 import React from 'react'
-import { Product } from '../Assets/data'
+import { Product, SingleProduct } from '../Assets/data'
 import ProductCard from './ProductCard'
 
-const ProductList = ({ products }: { products: Product[]}) => (
+const ProductList = ({ products, shoppingCart }: { products: Product[], shoppingCart: SingleProduct[] }) => (
     <div className='products-list' id='products-list'>
         <div className='container'>
             <div className='row'>

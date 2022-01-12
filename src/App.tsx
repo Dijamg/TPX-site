@@ -3,7 +3,7 @@ import MerchStoreCategory from './Components/MerchStoreCategory'
 import ProductInfoPage from './Components/ProductInfoPage'
 import TPXsite from './Components/TPXsite'
 import Footer from './Components/Footer'
-import { Member, LoL, Runeterra, TFT, Operators, Product, Category } from './Assets/data'
+import { Member, LoL, Runeterra, TFT, Operators, Product, Category, SingleProduct } from './Assets/data'
 import MemberService from './Services/Member'
 import ProductService from './Services/Product'
 import CategoryService from './Services/Category'
@@ -19,13 +19,18 @@ const App = () => {
   const [gameInfos, setGameInfos] = useState<(LoL|Runeterra|TFT)[]>([])
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
+  
+  //List which holds items in shopping cart. This will be passed into other components where hovering over shopping cart is possible.
+  const [shoppingCart, setShoppingCard] = useState<SingleProduct[]>([])
 
   //Bundle all states containing members and their information for shortening code.
   const operators: Operators = {
     members: members,
     gameInfos: gameInfos,
     products: products,
-    categories: categories
+    categories: categories,
+    shoppingCart: shoppingCart,
+    setShoppingCart: setShoppingCard
 }
 
   useEffect(() => {
@@ -67,7 +72,7 @@ const App = () => {
         <div>
         <Router>
           <Route exact path="/" render={() => <TPXsite operators={operators}/>}/>
-          <Route exact path="/merch" render={() => <MerchStoreCategory operators={ operators} categoryName="Hoodies"/>} />
+          <Route exact path="/merch" render={() => <MerchStoreCategory operators={ operators} categoryName="Hoodies" />} />
           <Route exact path="/merch/Hoodies" render={() => <MerchStoreCategory operators={ operators} categoryName="Hoodies" />} />
           <Route exact path="/merch/Headwear" render={() => <MerchStoreCategory operators={ operators} categoryName="Headwear" />} />
           <Route exact path="/merch/T-Shirts" render={() => <MerchStoreCategory operators={ operators} categoryName="T-Shirts" />} />
@@ -75,7 +80,7 @@ const App = () => {
 
           <Route exact path="/merch/:category/:id" render={ ({ match }) => {
             const product = getProductById(match.params.id)
-             if(product !== undefined) {return <ProductInfoPage operators={ operators} product={product} />}
+             if(product !== undefined) {return <ProductInfoPage operators={ operators} product={product}/>}
           }
           } />
 

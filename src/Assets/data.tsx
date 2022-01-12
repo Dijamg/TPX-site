@@ -21,10 +21,21 @@ export type Product = {
     description: string,
     img: string,
     price: number,
-    size: Size[]|undefined,
+    size: Size[]|undefined, //available sizes and quantities of sizes
     quantity: number | undefined,
     category: string
 }
+
+export type SingleProduct = {
+    id: number,
+    name: string,
+    category: string,
+    img: string,
+    price: number,
+    size: string | undefined,
+    quantity: number,
+}
+
 
 export type LoL = {
     id: number,
@@ -61,7 +72,9 @@ export type Operators = {
     members: Member[],
     gameInfos: (LoL|Runeterra|TFT)[],
     products: Product[],
-    categories: Category[]
+    categories: Category[],
+    shoppingCart: SingleProduct[],
+    setShoppingCart: (arg0: React.SetStateAction<SingleProduct[]>) => void
 }
 
 
