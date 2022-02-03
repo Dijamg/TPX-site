@@ -8,7 +8,7 @@ import ProductInfo from './ProductInfo'
 const ProductInfoPage = ({ product, operators}:{ product: Product, operators: Operators }) => {
     return (
         <div className='merch-page' id='merch-page'>
-            <MerchsiteNavbar shoppingCart={operators.shoppingCart}/>
+            <MerchsiteNavbar operators={operators}/>
             <MerchsiteCategories categories={operators.categories}/>
             <ProductInfo product = {product} operators={operators}/>
         </div>

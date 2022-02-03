@@ -1,16 +1,36 @@
 import React from 'react'
-import { SingleProduct } from '../Assets/data'
+import { SingleProduct, Operators } from '../Assets/data'
 import { FaTimes } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 
-const ShoppingCartDropdown = ( { setDropdownCartHovered, productsInCart } : { setDropdownCartHovered: (arg0: React.SetStateAction<boolean>) => void, productsInCart: SingleProduct[] } ) => {
+const ShoppingCartDropdown = ( { setDropdownCartHovered, operators } : { setDropdownCartHovered: (arg0: React.SetStateAction<boolean>) => void, operators: Operators } ) => {
+
+    //Removes the item from the shopping cart. Adds the items back to the available items in the store.
+    const onDelete = (item: SingleProduct) => {
+
+        let isAccepted = window.confirm("Are you sure you want to remove the item from the shopping cart?")
+
+        if(isAccepted){
+            const productToEdit = operators.products.find(product => product.id === item.id)
+            if(productToEdit !== undefined){
+                if(productToEdit.size !== undefined && item.size !== undefined) {
+                    const indexToEdit = productToEdit.size.findIndex(size => size.size === item.size)
+                    productToEdit.size[indexToEdit].quantity += item.quantity
+                } else {
+                    if(productToEdit.quantity !== undefined) productToEdit.quantity += item.quantity
+                }
+
+                operators.setShoppingCart(operators.shoppingCart.filter(product => (product.id !== item.id) || (product.size !== item.size)))
+            }
+        }
+            
+    }
 
     const cartItem = (item: SingleProduct) => {
 
-        const hasSize = item.size !== undefined
 
         return(
-            <div key={item.id} className="shoppingCart-dropdown-item">
+            <div key={`${item.id}${item.size}`} className="shoppingCart-dropdown-item">
                 <div className="row">
                     <div className="col-4">
                         <img className="shoppingCart-dropdown-item-image" src={item.img}></img>
@@ -27,7 +47,7 @@ const ShoppingCartDropdown = ( { setDropdownCartHovered, productsInCart } : { se
                             </div>
                             <div className="col-2">
                                 <button type="button" className="shoppingCart-dropdown-removeButton">
-                                    <FaTimes className="shoppingCartRemoveIcon"/>
+                                    <FaTimes onClick={() => onDelete(item)} className="shoppingCartRemoveIcon"/>
                                 </button>
                             </div>
                         </div>
@@ -39,7 +59,7 @@ const ShoppingCartDropdown = ( { setDropdownCartHovered, productsInCart } : { se
     }
 
     const output = () => {
-        if(productsInCart.length < 1){
+        if(operators.shoppingCart.length < 1){
             return(
                 <div>
                     <div className="shoppingCart-dropdown-items"></div>
@@ -49,7 +69,7 @@ const ShoppingCartDropdown = ( { setDropdownCartHovered, productsInCart } : { se
         } else {
             return(
                     <div className="shoppingCart-dropdown-items">
-                        {productsInCart.map(a => cartItem(a))}
+                        {operators.shoppingCart.map(a => cartItem(a))}
                         <div className="shoppingCart-checkoutbutton-wrapper"><Button className="shoppingCart-checkoutbutton" variant="danger">Checkout</Button></div>
                     </div>
                     

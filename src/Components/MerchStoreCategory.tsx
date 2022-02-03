@@ -12,7 +12,7 @@ import MerchsiteCategories from './MerchsiteCategories'
 
     return (
         <div className='merch-page' id='merch-page'>
-            <MerchsiteNavbar shoppingCart = {operators.shoppingCart}/>
+            <MerchsiteNavbar operators = {operators}/>
             <MerchsiteCategories categories={operators.categories}/>
             <div className='merch-page-store' id='merch-page-store'>
                 <ProductList products={displayProducts} shoppingCart={operators.shoppingCart}/>

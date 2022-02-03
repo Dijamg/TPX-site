@@ -54,7 +54,6 @@ const ProductInfo = ({ product, operators }:{ product: Product, operators: Opera
 
     const _handleQuantityChange = (event: React.FormEvent<HTMLSelectElement>) => {
         setSelectedQuantity(parseInt(event.currentTarget.value))
-        console.log(selectedQuantity)
     }
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -79,11 +78,8 @@ const ProductInfo = ({ product, operators }:{ product: Product, operators: Opera
             operators.setShoppingCart(operators.shoppingCart.concat(addedObject))
             if(product.size !== undefined && selectedSize !== undefined){
                 const indexToEdit = product.size.indexOf(selectedSize)
-                console.log(product.size)
-                console.log(indexToEdit)
                 //Decrease the quantity by the amount added to cart.
                 product.size[indexToEdit].quantity -= selectedQuantity
-                console.log(product.size)
             } else {
                 if(product.quantity !== undefined) product.quantity -= 1
             }

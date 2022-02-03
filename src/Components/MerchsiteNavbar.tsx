@@ -5,11 +5,13 @@ import ShoppingCartDropdown from './ShoppingCartDropdown'
 import {
     Link
   } from 'react-router-dom'
-import { SingleProduct } from '../Assets/data';
+import { SingleProduct, Operators } from '../Assets/data';
 
-const MerchsiteNavbar = ( { shoppingCart }:{ shoppingCart: SingleProduct[] }) => {
+const MerchsiteNavbar = ( { operators }:{ operators: Operators }) => {
 
-    const ShoppingCart = () => showShoppingCart ? <ShoppingCartDropdown setDropdownCartHovered = {setDropdownCartHovered} productsInCart = {shoppingCart}/> : <div></div>;
+    const shoppingCart: SingleProduct[] = operators.shoppingCart
+
+    const ShoppingCart = () => showShoppingCart ? <ShoppingCartDropdown setDropdownCartHovered = {setDropdownCartHovered} operators={operators}/> : <div></div>;
 
     const [shoppingCardHovered, setShoppingCartHovered] = useState<boolean>(false);
     const [dropdownCartHovered, setDropdownCartHovered] = useState<boolean>(false);
