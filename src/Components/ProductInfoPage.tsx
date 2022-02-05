@@ -1,5 +1,5 @@
 import React from 'react'
-import { Product, SingleProduct } from '../Assets/data'
+import { Product } from '../Assets/data'
 import MerchsiteNavbar from './MerchsiteNavbar'
 import { Operators } from '../Assets/data'
 import MerchsiteCategories from './MerchsiteCategories'

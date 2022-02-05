@@ -21,19 +21,18 @@ const ShoppingCartDropdown = ( { setDropdownCartHovered, operators } : { setDrop
                 }
 
                 operators.setShoppingCart(operators.shoppingCart.filter(product => (product.id !== item.id) || (product.size !== item.size)))
+                operators.setItemsInCart(operators.itemsInCart - item.quantity)
             }
         }
             
     }
 
     const cartItem = (item: SingleProduct) => {
-
-
         return(
             <div key={`${item.id}${item.size}`} className="shoppingCart-dropdown-item">
                 <div className="row">
                     <div className="col-4">
-                        <img className="shoppingCart-dropdown-item-image" src={item.img}></img>
+                        <img className="shoppingCart-dropdown-item-image" alt={item.name} src={item.img}></img>
                     </div>
                     <div className="col-8">
                         <div className="row no-gutters">
@@ -44,6 +43,9 @@ const ShoppingCartDropdown = ( { setDropdownCartHovered, operators } : { setDrop
                                     <span className="shoppingCart-dropdown-price">{item.price} €</span>
                                     <span className="shoppingCart-dropdown-size">{item.size}</span>
                                 </div>
+                                <span className="shoppingCart-dropdown-quantity">
+                                    {item.quantity} pc
+                                </span>
                             </div>
                             <div className="col-2">
                                 <button type="button" className="shoppingCart-dropdown-removeButton">

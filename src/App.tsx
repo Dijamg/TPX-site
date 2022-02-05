@@ -19,6 +19,7 @@ const App = () => {
   const [gameInfos, setGameInfos] = useState<(LoL|Runeterra|TFT)[]>([])
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
+  const [itemsInCart, setItemsInCart] = useState<number>(0);
   
   //List which holds items in shopping cart. This will be passed into other components where hovering over shopping cart is possible.
   const [shoppingCart, setShoppingCard] = useState<SingleProduct[]>([])
@@ -30,7 +31,9 @@ const App = () => {
     products: products,
     categories: categories,
     shoppingCart: shoppingCart,
-    setShoppingCart: setShoppingCard
+    setShoppingCart: setShoppingCard,
+    itemsInCart: itemsInCart,
+    setItemsInCart: setItemsInCart
 }
 
   useEffect(() => {

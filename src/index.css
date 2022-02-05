@@ -391,6 +391,17 @@ code {
   color: crimson;
 }
 
+.shoppingCart-dropdown-quantity {
+  font-size: larger;
+  font-weight: bold;
+  padding-left: 0%;
+}
+
+.shoppingCart-dropdown-quantity-modifier {
+  cursor: pointer;
+  font-size: x-large;
+}
+
 
 .shoppingCart-dropdown-emptyCart {
   text-align: center;

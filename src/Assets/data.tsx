@@ -74,7 +74,9 @@ export type Operators = {
     products: Product[],
     categories: Category[],
     shoppingCart: SingleProduct[],
-    setShoppingCart: (arg0: React.SetStateAction<SingleProduct[]>) => void
+    setShoppingCart: (arg0: React.SetStateAction<SingleProduct[]>) => void,
+    itemsInCart: number,
+    setItemsInCart: (arg0: React.SetStateAction<number>) => void
 }
 
 

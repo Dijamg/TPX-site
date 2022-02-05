@@ -1,6 +1,6 @@
 import React from 'react'
 import MerchsiteNavbar from './MerchsiteNavbar'
-import { Operators, SingleProduct } from '../Assets/data'
+import { Operators } from '../Assets/data'
 import ProductList from './ProductList'
 import MerchsiteCategories from './MerchsiteCategories'
 

@@ -38,7 +38,7 @@ const ProductInfo = ({ product, operators }:{ product: Product, operators: Opera
             }
 
             return (
-                <select className="form-control quantity-selector" onChange={e => _handleQuantityChange(e)}>
+                <select className="form-control quantity-selector" value={selectedQuantity} onChange={e => _handleQuantityChange(e)}>
                     {options.map(q => <option key={q}>{q}</option> )}
                 </select>
             )
@@ -75,13 +75,33 @@ const ProductInfo = ({ product, operators }:{ product: Product, operators: Opera
                 quantity: selectedQuantity
             }
 
-            operators.setShoppingCart(operators.shoppingCart.concat(addedObject))
+            //First we check if the selected product with the same size is already in the cart. If same product exists, increment its quantity by 1, else add new product to cart.
+            const indexToBeEdited = operators.shoppingCart.findIndex(cartProduct => (cartProduct.id === addedObject.id) && (cartProduct.size === addedObject.size) )
+            if(indexToBeEdited > -1){
+                operators.shoppingCart[indexToBeEdited].quantity += addedObject.quantity
+            }else{
+                operators.setShoppingCart(operators.shoppingCart.concat(addedObject))
+            }
+            operators.setItemsInCart(operators.itemsInCart + addedObject.quantity)
+
             if(product.size !== undefined && selectedSize !== undefined){
                 const indexToEdit = product.size.indexOf(selectedSize)
                 //Decrease the quantity by the amount added to cart.
                 product.size[indexToEdit].quantity -= selectedQuantity
+                if(product.size[indexToEdit].quantity === 0){
+                    setSelectedQuantity(0)
+                } else {
+                    setSelectedQuantity(1)
+                }
             } else {
-                if(product.quantity !== undefined) product.quantity -= 1
+                if(product.quantity !== undefined) {
+                    product.quantity -= selectedQuantity
+                    if(product.quantity === 0){
+                        setSelectedQuantity(0)
+                    } else {
+                        setSelectedQuantity(1)
+                    }
+                }
             }
             alert("Added to cart!")
         }
