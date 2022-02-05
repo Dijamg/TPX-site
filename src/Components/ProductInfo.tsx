@@ -88,21 +88,14 @@ const ProductInfo = ({ product, operators }:{ product: Product, operators: Opera
                 const indexToEdit = product.size.indexOf(selectedSize)
                 //Decrease the quantity by the amount added to cart.
                 product.size[indexToEdit].quantity -= selectedQuantity
-                if(product.size[indexToEdit].quantity === 0){
-                    setSelectedQuantity(0)
-                } else {
-                    setSelectedQuantity(1)
-                }
+                
             } else {
                 if(product.quantity !== undefined) {
                     product.quantity -= selectedQuantity
-                    if(product.quantity === 0){
-                        setSelectedQuantity(0)
-                    } else {
-                        setSelectedQuantity(1)
-                    }
                 }
             }
+
+            setSelectedQuantity(1)
             alert("Added to cart!")
         }
     }
