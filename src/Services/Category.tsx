@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://tpxjson.herokuapp.com/categories'
+const baseUrl = 'https://tpx-json-default-rtdb.firebaseio.com/categories'
 
 const getAll = () => {
     const request = axios.get(baseUrl)
