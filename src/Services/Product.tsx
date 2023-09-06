@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://tpxjson.herokuapp.com/products'
+const baseUrl = 'https://tpx-json-default-rtdb.firebaseio.com/products'
 
 const getAll = () => {
     const request = axios.get(baseUrl)
