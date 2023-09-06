@@ -5,7 +5,7 @@ import { ListGroup } from 'react-bootstrap'
 const getOpggUrl = (accountName: string): string => 'https://euw.op.gg/summoner/userName=' + accountName.split(' ').join('+')
 
 const getAchievements = (game: LoL) => {
-    if(game.achievements === null){
+    if(game.achievements === undefined){
         return <div className='achievement'>this player has not achieved anything.</div>
     } else {
         return (
