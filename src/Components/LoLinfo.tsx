@@ -5,18 +5,16 @@ import { ListGroup } from 'react-bootstrap'
 const getOpggUrl = (accountName: string): string => 'https://euw.op.gg/summoner/userName=' + accountName.split(' ').join('+')
 
 const getAchievements = (game: LoL) => {
-    var hasAchievments = game.achievements !== null ? !game.achievements === undefined : false
-    if(hasAchievments){
-        return <div className='achievement'>this player has not achieved anything.</div>
-    } else {
+    if(game.achievements !== null && game.achievements !== undefined){
         return (
             <ul>
                 {game.achievements.map( achievement => (
                 <li key={achievement} className='achievement'>{achievement}</li>
                 ))}
             </ul>
-            
-        )
+            )
+    } else {
+        return <div className='achievement'>this player has not achieved anything.</div>
     }
 }
 
